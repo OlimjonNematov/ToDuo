@@ -52,7 +52,7 @@ const AuthScreen = () => {
           <View style={styles.container}>
             <Text>Enter your email</Text>
             <TextInput
-              placeholder="Enter your email"
+              placeholder="Email"
               onChangeText={text => setEmailText(text)}
             />
           </View>
@@ -61,7 +61,7 @@ const AuthScreen = () => {
             <Text>Enter your password</Text>
             <TextInput
               secureTextEntry={true}
-              placeholder="Enter a passowrd"
+              placeholder="Password"
               onChangeText={text => setPasswordText(text)}
             />
           </View>

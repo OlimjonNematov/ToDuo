@@ -609,7 +609,7 @@ PODS:
     - Firebase/Auth (~> 6.25.0)
     - React
     - RNFBApp
-  - RNFBFirestore (7.1.5):
+  - RNFBFirestore (7.1.7):
     - Firebase/Firestore (~> 6.25.0)
     - React
     - RNFBApp
@@ -816,7 +816,7 @@ SPEC CHECKSUMS:
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
   RNFBApp: 09caf098f066a44cf6f7ce9ea7dbc8b980ca10ec
   RNFBAuth: 6c47b51d4aaac59ae96324f8bfde0c889a08a9d7
-  RNFBFirestore: 2429fbb550289d491665f70312dcd80831f3f77a
+  RNFBFirestore: b6209c3c80f6dc934e72443c007299f594041904
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
