@@ -7,6 +7,7 @@ import {
     TextInput, 
     Button,
     SafeAreaView,
+    TouchableOpacity,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 // import readFromDatabase from '../services/fire';
@@ -56,7 +57,8 @@ const AuthScreen = () => {
       {/* modal for login */}
       <Modal visible={showSignIn}>
         <SafeAreaView style={styles.main}>
-          <Text style={styles.title}>LOG IN SCREEN</Text>
+
+          <Text style={styles.title}>LOG IN</Text>
 
           <Text>Enter your email</Text>
           <View style={styles.container}>
@@ -77,79 +79,96 @@ const AuthScreen = () => {
             />
           </View>
 
-          <View style={styles.buttonsToAuthView}>
-            <Button
-              style={styles.registerButton}
-              title="Register"
-              color="red"
-              onPress={() => {
-                setNewScreen();
-              }}
-            />
-            <Button
+          
+          <View style={styles.buttons}>
+            <TouchableOpacity 
               style={styles.logInButton}
-              title="log in"
               onPress={() => {
-                //send the user to welcome page
+                //send user to welcome screen
                 signUserIn(emailText, passwordText);
-              }}
-            />
+              }}>
+              <Text style={styles.buttonText}>
+                LOG IN
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.link}
+              onPress={() => {
+                //send user to register screen
+                setNewScreen();
+              }}>
+              <Text style={styles.registerLinkText}>
+                REGISTER
+              </Text>
+            </TouchableOpacity>
+            
           </View>
         </SafeAreaView>
       </Modal>
       {/* Modal for register */}
       <Modal visible={!showSignIn}>
         <SafeAreaView style={styles.main}>
+
           <Text style={styles.title}>REGISTER SCREEN</Text>
+
           <View style={styles.container}>
             <Text>Enter your first name</Text>
-            <TextInput onChangeText={text => setFirstNameText(text)} />
+            <TextInput 
+              onChangeText={text => setFirstNameText(text)} 
+              placeholder="John" />
           </View>
+
           <View style={styles.container}>
             <Text>Enter your last name</Text>
-            <TextInput onChangeText={text => setLastNameText(text)} />
+            <TextInput 
+              onChangeText={text => setLastNameText(text)}
+              placeholder="Doe" />
           </View>
+
           <View style={styles.container}>
             <Text>Enter your age</Text>
             <TextInput
-              // keyboardType="number-pad"
               onChangeText={text => setAgeText(text)}
-            />
+              placeholder="69" />
           </View>
+
           <View style={styles.container}>
             <Text>Enter email to register</Text>
             <TextInput
-              placeholder="Enter your email"
+              placeholder="example@example.com"
               onChangeText={text => setEmailText(text)}
             />
           </View>
+
           <View style={styles.container}>
             <Text>Enter password to register</Text>
             <TextInput
-              placeholder="Enter a passowrd"
+              placeholder="1234abcd"
               onChangeText={text => setPasswordText(text)}
               secureTextEntry={true}
             />
           </View>
 
-          <View style={styles.buttonsToAuthView}>
-            <Button
+          <View style={styles.buttons}>
+            <TouchableOpacity
               style={styles.registerButton}
-              title="Register"
-              color="red"
               onPress={() => {
                 console.log('creating user');
-                //send the user to the welcome page
+                //send user to the welcome screen
                 createUser(emailText, passwordText);
-              }}
-            />
-            <Button
-              style={styles.logInButton}
-              title="log in"
+              }}>
+              <Text style={styles.buttonText}>SIGN UP</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={styles.link}
               onPress={() => {
+                //send user to log in screen
                 setNewScreen();
-              }}
-            />
+              }}>
+              <Text style={styles.loginLinkText}>LOG IN</Text>
+            </TouchableOpacity>
+
           </View>
         </SafeAreaView>
       </Modal>
@@ -164,37 +183,69 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'silver'
+    backgroundColor: 'silver',
   },
   textInput: {
-    borderColor: 'black',
   },  
   title: {
     fontSize: 40,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   container: {
     backgroundColor: 'white',
     height: '8%',
     padding: 7,
     marginTop: 10,
-    borderBottomWidth: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
     borderColor: '#EBEBEB',
     borderWidth: 3,
-    borderRadius: 10
+    borderRadius: 10,
+    marginBottom: 8,
+  },
+
+  //buttons--------------------
+  buttons: {
+    justifyContent: 'center',
+    marginTop: 15
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15,
+    letterSpacing: 2
   },
   logInButton: {
-    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#42aaf5',
+    borderRadius: 60,
+    height: 40,
   },
   registerButton: {
-    flex: 1,
-  },
-  buttonsToAuthView: {
-    marginTop: 10,
-    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#e33232',
+    borderRadius: 60,
+    height: 40
   },
+
+  //links----------------------
+  link: {
+    alignItems: 'center',
+    marginTop: 10
+  },
+  loginLinkText: {
+    color: '#42aaf5',
+    fontWeight: 'bold',
+    fontSize: 15,
+    letterSpacing: 2
+  },
+  registerLinkText: {
+    color: '#e33232',
+    fontWeight: 'bold',
+    fontSize: 15,
+    letterSpacing: 2
+  }
 });
 export default AuthScreen;
