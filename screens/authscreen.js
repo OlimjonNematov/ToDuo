@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Modal, StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import {
+    Modal, 
+    StyleSheet, 
+    Text, 
+    View, 
+    TextInput, 
+    Button,
+    SafeAreaView,
+} from 'react-native';
 import auth from '@react-native-firebase/auth';
 // import readFromDatabase from '../services/fire';
 import {addUser} from '../services/fire';
@@ -42,26 +50,29 @@ const AuthScreen = () => {
         console.error(error);
       });
   };
+
   return (
-    <View>
+    <SafeAreaView style={styles.main}>
       {/* modal for login */}
       <Modal visible={showSignIn}>
-        <View>
+        <SafeAreaView style={styles.main}>
           <Text style={styles.title}>LOG IN SCREEN</Text>
 
+          <Text>Enter your email</Text>
           <View style={styles.container}>
-            <Text>Enter your email</Text>
             <TextInput
+              style={styles.textInput}
               placeholder="Enter your email"
               onChangeText={text => setEmailText(text)}
             />
           </View>
 
+          <Text>Enter your password</Text>
           <View style={styles.container}>
-            <Text>Enter your password</Text>
             <TextInput
+              style={styles.textInput}
               secureTextEntry={true}
-              placeholder="Enter a passowrd"
+              placeholder="Enter a password"
               onChangeText={text => setPasswordText(text)}
             />
           </View>
@@ -84,11 +95,11 @@ const AuthScreen = () => {
               }}
             />
           </View>
-        </View>
+        </SafeAreaView>
       </Modal>
       {/* Modal for register */}
       <Modal visible={!showSignIn}>
-        <View>
+        <SafeAreaView style={styles.main}>
           <Text style={styles.title}>REGISTER SCREEN</Text>
           <View style={styles.container}>
             <Text>Enter your first name</Text>
@@ -140,22 +151,39 @@ const AuthScreen = () => {
               }}
             />
           </View>
-        </View>
+        </SafeAreaView>
       </Modal>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    alignContent: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: 'silver'
+  },
+  textInput: {
+    borderColor: 'black',
+  },  
   title: {
     fontSize: 40,
+    alignSelf: 'center'
   },
   container: {
+    backgroundColor: 'white',
+    height: '8%',
+    padding: 7,
     marginTop: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#4f3531',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    borderColor: '#EBEBEB',
+    borderWidth: 3,
+    borderRadius: 10
   },
   logInButton: {
     flex: 1,

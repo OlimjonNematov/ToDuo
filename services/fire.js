@@ -6,8 +6,8 @@ import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 const db = firestore();
 //todo this may need some help? is checked when not logged in which leads to error
-var goalId = '',
-  userId = auth().currentUser.uid;
+// var goalId = '',
+//   userId = auth().currentUser.uid;
 
 // returns data for specified document in collection, used for one time reads
 const readFromDatabase = (collectionName, docName) => {
