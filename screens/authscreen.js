@@ -187,14 +187,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   textInput: {
-    // fontFamily: 'Roboto',
     fontWeight: '100',
     fontSize: 16
   },  
   title: {
     fontSize: 40,
     alignSelf: 'center',
-    // fontFamily: 'Roboto',
   },
   container: {
     backgroundColor: 'white',
@@ -210,7 +208,6 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    // fontFamily: 'Roboto',
     shadowOpacity:0.22,
     shadowRadius: 2.22,
     elevation: 3
@@ -222,7 +219,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   buttonText: {
-    // fontFamily: 'Roboto',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 15,
