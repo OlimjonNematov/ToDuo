@@ -13,6 +13,8 @@ import auth from '@react-native-firebase/auth';
 // import readFromDatabase from '../services/fire';
 import {addUser} from '../services/fire';
 
+
+
 const AuthScreen = () => {
   //manage state
   const [showSignIn, setScreen] = useState(true);
@@ -21,6 +23,8 @@ const AuthScreen = () => {
   const [ageText, setAgeText] = useState('');
   const [firstNameText, setFirstNameText] = useState('');
   const [lastNameText, setLastNameText] = useState('');
+  const [heightBox, setHeightBox] = useState('8%');
+
 
   function setNewScreen() {
     setScreen(!showSignIn);
@@ -58,23 +62,19 @@ const AuthScreen = () => {
       <Modal visible={showSignIn}>
         <SafeAreaView style={styles.main}>
 
-          <Text style={styles.title}>LOG IN</Text>
-
-          <Text>Enter your email</Text>
+          <Text style={styles.title}>ToDuo</Text>
           <View style={styles.container}>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Enter your email"
+            <TextInput style={styles.textInput}
+              placeholder="Email"
               onChangeText={text => setEmailText(text)}
             />
           </View>
 
-          <Text>Enter your password</Text>
           <View style={styles.container}>
             <TextInput
               style={styles.textInput}
               secureTextEntry={true}
-              placeholder="Enter a password"
+              placeholder="Password"
               onChangeText={text => setPasswordText(text)}
             />
           </View>
@@ -109,41 +109,41 @@ const AuthScreen = () => {
       <Modal visible={!showSignIn}>
         <SafeAreaView style={styles.main}>
 
-          <Text style={styles.title}>REGISTER SCREEN</Text>
+          <Text style={styles.title}>Register</Text>
 
           <View style={styles.container}>
-            <Text>Enter your first name</Text>
-            <TextInput 
+            <TextInput
+              style={styles.textInput}
               onChangeText={text => setFirstNameText(text)} 
-              placeholder="John" />
+              placeholder="First Name" />
           </View>
 
           <View style={styles.container}>
-            <Text>Enter your last name</Text>
             <TextInput 
+            style={styles.textInput}
               onChangeText={text => setLastNameText(text)}
-              placeholder="Doe" />
+              placeholder="Last Name" />
           </View>
 
           <View style={styles.container}>
-            <Text>Enter your age</Text>
             <TextInput
+              style={styles.textInput}
               onChangeText={text => setAgeText(text)}
-              placeholder="69" />
+              placeholder="Age" />
           </View>
 
           <View style={styles.container}>
-            <Text>Enter email to register</Text>
             <TextInput
-              placeholder="example@example.com"
+              style={styles.textInput}
+              placeholder="Email"
               onChangeText={text => setEmailText(text)}
             />
           </View>
 
           <View style={styles.container}>
-            <Text>Enter password to register</Text>
             <TextInput
-              placeholder="1234abcd"
+              style={styles.textInput}
+              placeholder="Password"
               onChangeText={text => setPasswordText(text)}
               secureTextEntry={true}
             />
@@ -177,50 +177,63 @@ const AuthScreen = () => {
 };
 
 const styles = StyleSheet.create({
+
   main: {
     flex: 1,
     alignContent: 'center',
     alignItems: 'stretch',
     justifyContent: 'center',
     padding: 20,
-    backgroundColor: 'silver',
+    backgroundColor: 'white',
   },
   textInput: {
+    fontFamily: 'Roboto',
+    fontWeight: '100',
+    fontSize: 16
   },  
   title: {
     fontSize: 40,
     alignSelf: 'center',
+    fontFamily: 'Roboto',
   },
   container: {
     backgroundColor: 'white',
-    height: '8%',
     padding: 7,
     marginTop: 10,
     alignItems: 'stretch',
     justifyContent: 'center',
     borderColor: '#EBEBEB',
-    borderWidth: 3,
     borderRadius: 10,
     marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    fontFamily: 'Roboto',
+    shadowOpacity:0.22,
+    shadowRadius: 2.22,
+    elevation: 3
   },
 
   //buttons--------------------
   buttons: {
     justifyContent: 'center',
-    marginTop: 15
+    marginTop: 15,
   },
   buttonText: {
+    fontFamily: 'Roboto',
     color: 'white',
     fontWeight: 'bold',
     fontSize: 15,
-    letterSpacing: 2
+    letterSpacing: 2,
   },
   logInButton: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#42aaf5',
     borderRadius: 60,
-    height: 40,
+    height: 40
   },
   registerButton: {
     alignItems: 'center',
@@ -239,13 +252,13 @@ const styles = StyleSheet.create({
     color: '#42aaf5',
     fontWeight: 'bold',
     fontSize: 15,
-    letterSpacing: 2
+    letterSpacing: 2,
   },
   registerLinkText: {
     color: '#e33232',
-    fontWeight: 'bold',
     fontSize: 15,
-    letterSpacing: 2
+    letterSpacing: 2,
+    fontWeight: 'bold'
   }
 });
 export default AuthScreen;

@@ -21,6 +21,9 @@
 		40424F7F573CCE4D1EB64245 /* libPods-project6-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E15C6732BE1EB701934D2 /* libPods-project6-tvOS.a */; };
 		6441E6092492D471008B4DA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6441E6082492D471008B4DA6 /* GoogleService-Info.plist */; };
 		D84DEE3E07B7D01EACFF5D44 /* libPods-project6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0237C3E6F283F99EFF62002A /* libPods-project6.a */; };
+		2FF0CE04CB8E409E965F1865 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A64E4BEC071F43C0AAD8A398 /* Roboto-Light.ttf */; };
+		76469A8B14D54821BD3F36E7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D622D34161F4CB7BB644BFD /* Roboto-Thin.ttf */; };
+		346CC908D7FD46AE82AFEB0C /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01A63A325333484E84D40ACF /* Roboto.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F11F530F67145D1FCFBD2857 /* Pods-project6-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project6-tvOS.release.xcconfig"; path = "Target Support Files/Pods-project6-tvOS/Pods-project6-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F87A23E41575F2D32811D371 /* Pods-project6-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project6-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-project6-tvOSTests/Pods-project6-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		A64E4BEC071F43C0AAD8A398 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9D622D34161F4CB7BB644BFD /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		01A63A325333484E84D40ACF /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../assets/fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				75BECB361DFCE5FEA48A499F /* Pods */,
+				AAD2859B33C64B51885144FB /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -199,6 +206,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		AAD2859B33C64B51885144FB /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A64E4BEC071F43C0AAD8A398 /* Roboto-Light.ttf */,
+				9D622D34161F4CB7BB644BFD /* Roboto-Thin.ttf */,
+				01A63A325333484E84D40ACF /* Roboto.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -346,6 +364,9 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				6441E6092492D471008B4DA6 /* GoogleService-Info.plist in Resources */,
+				2FF0CE04CB8E409E965F1865 /* Roboto-Light.ttf in Resources */,
+				76469A8B14D54821BD3F36E7 /* Roboto-Thin.ttf in Resources */,
+				346CC908D7FD46AE82AFEB0C /* Roboto.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
