@@ -4,15 +4,22 @@ import { status } from './universalConstants';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 // import { matchGoals } from './matchGoals';
-
-const userId = auth().currentUser.uid;
+var userId, user;
 const db = firestore();
 const usersCollection = db.collection('Users');
-const user = usersCollection.doc(userId);
+
 var goalId = '',
     otherGoal = '',
     otherUser = '';
 var waitingRoom;
+
+//refreshes the constants so they're available when methods are called
+function refreshConsts() {
+    if (auth().currentUser) {
+        userId = auth().currentUser.uid;
+        user = usersCollection.doc(userId);
+    }
+}
 
 //creates a goal and adds it to the user's goal collection
 export const addGoalToUserGoalCollection = (
@@ -23,6 +30,7 @@ export const addGoalToUserGoalCollection = (
 ) => {
     //create a document with auto generated ID and add title, description and milestones.
     setCategory(goalCategory);
+    refreshConsts();
     user
         .collection('goals')
         .add({
